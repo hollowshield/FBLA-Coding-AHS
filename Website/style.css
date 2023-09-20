@@ -44,3 +44,7 @@ nav{
     text-decoration: none;
     color: white;
 }
+.menu-item a: hover{
+    /* Placeholder color Please change */
+    color: green;
+}
