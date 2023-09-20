@@ -2,15 +2,15 @@
 body{
     /*Default text can be changed later */
     word-wrap:break-word;
-    color: white;
+    color: black;
 }
 
 header{
     display: block;
 }
 nav{
-    /* Makes the navigator above everything and sticks to the top of the screen. The type of box structure is flex */
-    position: fixed;
+    /* Makes the navigator above everything and sticks to top of the screen. The type of box structure is flex */
+    position:fixed;
     z-index:1;
     display: flex;
     background-color: navy;
@@ -18,12 +18,15 @@ nav{
     height:6vh;
     width:100%;
     margin-top:-8px;
+    color: white;
     
 }
 .nav-tools{
+    /* Makes all navigator tools inherit the flex display boxing format */
     box-sizing: inherit;
 }
 .nav-tools ul{
+    /*removes the basic list dots*/
     list-style: none;
     text-align: center;
 }
@@ -44,7 +47,7 @@ nav{
     text-decoration: none;
     color: white;
 }
-.menu-item a: hover{
+.menu-item a:hover{
     /* Placeholder color Please change */
     color: green;
 }
