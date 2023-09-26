@@ -1,24 +1,40 @@
 /*All Styles are here */
 body{
-    /*Default text can be changed later */
+    /*Defualt text can be changed later */
     word-wrap:break-word;
     color: black;
 }
+/* canvas styling display */
+canvas{
+    display:block;
+    margin:0px;
+    padding:0px;
+}
+/*matrix rain styling */
+#c{
+    left:0px;
+    position: absolute;
+}
 
 header{
-    display: block;
+    display:block;
 }
 nav{
-    /* Makes the navigator above everything and sticks to top of the screen. The type of box structure is flex */
+    /* Makes the navagator above everything and stick to top of the screen. The type of box structure is flex */
     position:fixed;
+    top: 8px;
+    left: 0px;
     z-index:1;
     display: flex;
     background-color: navy;
     font-size:1.3em;
-    height:6vh;
-    width:100%;
+    height:2.3em;
+    width:99.75%;
     margin-top:-8px;
     color: white;
+    /*i made it look better feel free to change color or remove -milton*/
+    border-style: solid;
+    border-color: gold;
     
 }
 .nav-tools{
@@ -31,10 +47,12 @@ nav{
     text-align: center;
 }
 .nav-tools li{
+    /* creates effect for positioning to be like a selection button*/
     position: relative;    
     flex:1 0 100%;
 }
 .menu-item{
+    /* Nav font and style*/
     font-style: italic;
     text-transform: uppercase;
     float: left;
@@ -45,9 +63,14 @@ nav{
 }
 .menu-item a{
     text-decoration: none;
-    color: white;
+    color:white;
 }
 .menu-item a:hover{
-    /* Placeholder color Please change */
-    color: green;
+    color:gold;
+}
+#clickable-logo{
+ height:50px;
+ width:80px;
+ top:15px;
+ padding-left: 1vw; /*9/23 6:30pm Logo not stuck to the side*/
 }
