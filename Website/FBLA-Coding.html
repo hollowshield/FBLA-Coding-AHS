@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+            
 <html>
     <head>
         <title>FBLA-Coding</title>
@@ -7,25 +9,96 @@
         <link rel="shortcut icon" href="https://www.guhsdaz.org/cms/lib/AZ50010915/Centricity/Template/GlobalAssets/images///logos/Apollo.png">
     </head>
     <body>
+        
         <header>
             <!-- The navigator will be at a fixed position at the top while allowing the user to go through the website's pages easily. All navigator divisions will be a hyperlink directing the user to different parts of the website-->
             <nav>
-                <!-- NAVIGATOR MUST ALLWAYS BE AT THE TOP OF ALL PAGES-->
+                <!-- NAVIAGTOR MUST ALLWAYS BE AT THE TOP OF ALL PAGES-->
                 <div class="nav-logo">
-                    <!-- Placeholder Logo, height and width please add it in the style.css file -->
-                    <a href="index.html"><img id="clickable-logo" src="https://www.fbla-pbl.org/media/2022/09/FBLA_FullName_HorizontalLogo_White-300x232.png" height="56px" width="80px"></a>
+                    <!-- Placeholder Logo please change -->
+                    <a href="index.html"><img id="clickable-logo" src="https://www.fbla-pbl.org/media/2022/09/FBLA_FullName_HorizontalLogo_White-300x232.png"></a>
                 </div>
                 <div class="nav-tools" >
                     <ul>
                         <li class = "menu-item" ><a href="announcements.html">announcements</a></li>
+                        <li class = "menu-item" ><a href="projects.html">Projects</a></li>
                     </ul>
                 </div>
         </header>
+        <canvas id="c">
+        </canvas>
         <main>
+            
+            
+            
+            
+            
+            
            
         </main>
         <footer>
             
         </footer>
     </body>
+    <!--Matrix Rain .P.S I think I broke the header I wasnt even playing with it so soz but rain is working MIlton did this and deserves credit cuz hes really cool. Also only works when place in this file idk how to
+        fix but pablo probably does its like 2 am im to lazy to figure it out if you do figure it out just copy and paste (Solved!)-->
+    
+    <!-- The matrix rain only applays to the canvas if you have a canvas in body that contains an id of "c" -->
+    <script>
+            
+                var c = document.getElementById("c");
+                var ctx = c.getContext("2d");
+                
+                //making the canvas full screen C.height just increase/decrease if to long or short to make full screan its  c.height = window.innerHeight;
+                c.height = 1080
+                c.width = window.innerWidth;
+                
+                //english characters
+                var english = "1001010101110101010101010010101000101011101111010101010110101010101010101110000101";
+                //converting the string into an array of single characters
+                english = english.split("");
+                
+                var font_size = 15;
+                var columns = c.width/font_size; //number of columns for the rain
+                //an array of drops - one per column
+                var drops = [];
+                //x below is the x coordinate
+                //1 = y co-ordinate of the drop(same for every drop initially)
+                for(var x = 0; x < columns; x++)
+                	drops[x] = 1; 
+                
+                //drawing the characters
+                function draw()
+                    {
+                    	//Black BG for the canvas Background Color 
+                    	//translucent BG to show trail
+                    	ctx.fillStyle = "rgba(34, 60, 96, 0.05)";
+                    	ctx.fillRect(0, 0, c.width, c.height);
+                    	
+                    	ctx.fillStyle = "gold"; //Text Color 
+                    	ctx.font = font_size + "px arial";
+                    	//looping over drops
+                    	for(var i = 0; i < drops.length; i++)
+                    	{
+                    		//a random chinese character to print
+                    		var text = english[Math.floor(Math.random()*english.length)];
+                    		//x = i*font_size, y = value of drops[i]*font_size
+                    		ctx.fillText(text, i*font_size, drops[i]*font_size);
+                    		
+                    		//sending the drop back to the top randomly after it has crossed the screen
+                    		//adding a randomness to the reset to make the drops scattered on the Y axis
+                    		if(drops[i]*font_size > c.height && Math.random() > 0.975)
+                    			drops[i] = 0;
+                    		
+                    		//incrementing Y coordinate
+                    		drops[i]++;
+                    	}
+                    }
+                    
+                    setInterval(draw, 33);
+        </script>
+            
 </html>
+
+
+
